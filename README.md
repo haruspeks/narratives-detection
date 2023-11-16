@@ -50,3 +50,19 @@ This section includes any additional information that you want to mention about 
     Potential next steps for the tool (i.e. what you would implement if you had more time)
     Any limitations of the current implementation of the tool
     Motivation for design/architecture decisions
+
+
+ ## Sample Post
+
+```
+Unmasking the Dark Secrets of Power! 🔥
+BILL GATES: A Mastermind without a Medical Degree? 💉
+COVID: The Patented Pandemic?
+DEPOPULATION AGENDA: Gates and the Elites' Sinister Plot☠️
+BIG PHARMA: The Evil Empire Unveiled💊
+THE TRUTH THEY HID FROM US: The Deep State's Brainwashing 🔐
+TRUMP: The Unfinished Battle for the Republic ⚖️
+THE MILITARY: Guardians of the Constitution 💪
+THE MOMENT OF TRUTH: Corruption Exposed, Heroes Unveiled 🌐
+ALL YOUR ANSWERS ARE IN THE CHANNEL BELOW.THE WORLD NEEDS TO KNOW THE TRUTH.
+```   
