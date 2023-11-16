@@ -3,6 +3,8 @@
 
 ## Team Members
 
+Dasha, Fabio, Fraser, Renu, Andrey.
+
 This section is a list of team members, and possibly links to GitHub/GitLab/LinkedIn/personal blog pages for members.
 Tool Description
 
@@ -33,6 +35,8 @@ Updates to Python Package
 `mamba env update --file environment.yml --prune`
 
 ## Run
+
+Configure the database connection in a `.env` file and run 'source .env'
 
 `python ./src/entry.py`
 

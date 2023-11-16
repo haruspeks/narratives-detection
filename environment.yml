@@ -11,6 +11,8 @@ dependencies:
 - Flask
 - python-dotenv
 - pip
+- requests
+- psycopg2
 - pip:
   - spacy 
   - wikipedia
