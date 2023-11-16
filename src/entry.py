@@ -17,9 +17,9 @@ def default():
    data.get('id')
 
    text = request.form['entities']
-   entities = entityExtractor.extract(text)
+   clean_entities = entityExtractor.extract_entity_ids(text)
 
-   clean_entities = set([entity.strip() for entity in entities.split(',')])
+   # clean_entities = set([entity.strip() for entity in entities.split(',')])
    # print(clean_entities)
 
    return matchMaker.match(clean_entities)
