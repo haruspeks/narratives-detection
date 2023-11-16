@@ -1,6 +1,8 @@
+from prompt_toolkit.shortcuts.prompt import E
 import spacy
 from dataclasses import dataclass
 import wikipedia
+import ast
 
 
 _BLACKLIST = {'ORDINAL','CARDINAL','PERCENT','QUANTITY','PERCENT'}
@@ -56,6 +58,32 @@ def _disambiguate_entities(entities, auto_suggest=False, debug=False):
       continue
   
   return normalized_entities
+
+
+def _parse_serialized_entities(entities_str):
+  processed_entities = []
+  all_ents = ast.literal_eval(entities_str)
+  for ent in all_ents:
+    ent_name = ent['text']
+    ent_type = ent['type']
+    processed_entities.append(Entity(ent_name, ent_type))
+  return processed_entities
+
+
+def get_key_for_entity_set(entity_ids):
+  if not entity_ids:
+    return None
+  return hash(','.join(sorted(entity_ids)))
+
+
+def serialized_entities_to_ids(entities_str):
+  entities = _parse_serialized_entities(entities_str)
+  if not entities:
+    return None
+  entities = _filter_entities(entities)
+  entities = _disambiguate_entities(entities)
+  return [e.id for e in entities]
+
 
 #### MAIN METHOD #####
 def extract_entity_ids(text: str):
