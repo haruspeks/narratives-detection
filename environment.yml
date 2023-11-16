@@ -12,4 +12,6 @@ dependencies:
 - python-dotenv
 - pip
 - pip:
+  - spacy 
+  - wikipedia
 

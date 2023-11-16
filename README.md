@@ -30,7 +30,11 @@ Activate the environment:
 
 Updates to Python Package 
 
-`mamba env update --file environment.yml --prune``
+`mamba env update --file environment.yml --prune`
+
+## Run
+
+`python ./src/entry.py`
 
 ## Usage
 
