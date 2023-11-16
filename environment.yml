@@ -1,0 +1,15 @@
+name: narratives-detection
+channels:
+- conda-forge
+- anaconda
+- defaults
+dependencies:
+- python=3.11
+- pandas
+- matplotlib
+- jupyter
+- Flask
+- python-dotenv
+- pip
+- pip:
+
