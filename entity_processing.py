@@ -1,7 +1,13 @@
 import spacy
 from dataclasses import dataclass
 import wikipedia
+import nltk
+from nltk.corpus import stopwords
+from enum import Enum
 
+# Create a set of stop words 
+nltk.download('stopwords') 
+_STOP_WORDS = set(stopwords.words('english')) 
 
 _BLACKLIST = {'ORDINAL','CARDINAL','PERCENT','QUANTITY','PERCENT'}
 
@@ -41,10 +47,25 @@ def _get_wiki_id(text, language="en", auto_suggest=False, debug=False):
       return None
   return page.pageid
 
+def _remove_stop_words(text): 
+  words = text.split() 
+  filtered_words = [word for word in words if word not in stop_words] 
+  return ' '.join(filtered_words)
 
-def _disambiguate_entities(entities, auto_suggest=False, debug=False):
-  wiki_ids = (_get_wiki_id(entity.text, auto_suggest=auto_suggest, debug=debug) for entity in entities)
-  entities = [Entity(text=e.text,type=e.type, wiki_id=wiki_id, id=(wiki_id or e.text)) for e, wiki_id in zip(entities, wiki_ids)]
+# Methods to disambiguate.
+class DisambiguateMethod(Enum):
+    NONE = 0 # Just remove stop words.
+    WIKI = 1 # Use Wikipedia IDs.
+
+def _disambiguate_entities(entities, debug=False, method=DisambiguateMethod.NONE):
+  normalized_texts = [remove_stop_words(e.text) for e in entities]
+
+  if method==DisambiguateMethod.NONE:
+    wiki_ids = [None for _ in entities]
+  elif method==DisambiguateMethod.WIKI:
+    wiki_ids = (_get_wiki_id(entity.text, auto_suggest=False, debug=debug) for entity in entities)
+  
+  entities = [Entity(text=e.text,type=e.type, wiki_id=wiki_id, id=(wiki_id or text)) for e, text, wiki_id in zip(entities, normalized_texts, wiki_ids)]
 
   found_ids = set()
   normalized_entities = []
@@ -58,7 +79,7 @@ def _disambiguate_entities(entities, auto_suggest=False, debug=False):
   return normalized_entities
 
 #### MAIN METHOD #####
-def extract_entity_ids(text: str):
+def extract_entity_ids(text: str, disambiguate_method : DisambiguateMethod = DisambiguateMethod.NONE):
   entities = _extract_raw_entities(text)
   entities = _filter_entities(entities)
   entities = _disambiguate_entities(entities)
