@@ -3,7 +3,7 @@
 
 ## Team Members
 
-Dasha, Fabio, Fraser, Renu, Andrey.
+Dasha, Fabio, Fraser, Renu, Andrey, Yasha.
 
 This section is a list of team members, and possibly links to GitHub/GitLab/LinkedIn/personal blog pages for members.
 Tool Description
