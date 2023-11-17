@@ -49,7 +49,7 @@ result = matcher.match_post(post)  # list of tuples with the first item being a 
 Limitations and future additions:
 * No disambiguation is performed. This would improve accuracy.
 * Generalising accepted input format would make the tool more accessible
-* Integrating with Telegram channels for auomatic input rather than manual input
+* Integrating with Telegram channels for automatic input rather than manual input
 * Integrating with proper DB rather than CSV file usage
 * Consider relationships when clustering/matching
 * Create UI/email notifications/bot
