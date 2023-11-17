@@ -46,6 +46,9 @@ Limitations and future additions:
 * Generalising accepted input format would make the tool more accessible
 * Integrating with Telegram channels for auomatic input rather than manual input
 * Integrating with proper DB rather than CSV file usage
+* Consider relationships when clustering/matching
+* Create UI/email notifications/bot
+* Maintain dedicated DB
 
  ## Sample Post
 
