@@ -18,8 +18,9 @@ def default():
    print('post called')
    data.get('id')
 
-   text = request.form['entities']
-   result = chatGPT.analyse(text)
+   # text = request.form['entities']
+   result = chatGPT.analyse('text')
+   # result = chatGPT.create_embeddings()
    # clean_entities = entityExtractor.extract_entity_ids(text)
 
    # clean_entities = set([entity.strip() for entity in entities.split(',')])
