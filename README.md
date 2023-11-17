@@ -26,9 +26,14 @@ Updates to Python Package
 
 ## Run
 
-Configure the database connection in a `.env` file and run 'source .env'
+Configure the database connection and OPENAI_API_KEY in a `.env` file and run 'source .env'
+
+Run:
 
 `python ./src/entry.py`
+
+Open the 'form.html' file, hit submit and the api will submit a series of QAnon posts to ChatGPT that will generate a list of narratives as output.
+
 
 ## Usage
 
